@@ -15,7 +15,7 @@
     "dotenv": "^17.2.1",
     "electron": "^38.3.0",
     "mongodb": "^5.9.2",
-    "mongoose": "^7.5.0",
+    "mongoose": "^7.8.7",
     "node-cron": "^4.2.1"
   }
 }
