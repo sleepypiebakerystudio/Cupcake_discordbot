@@ -1,0 +1,84 @@
+:root{
+    --pink: #ffcfe5;
+    --blue: #a1ebff;
+    --hotpink: #ff6fb2;
+    --text: #01bbee;
+    --white: #fff;
+    --shadow: rgba(255, 111, 178, 0.3);
+}
+
+body{
+    background-color: var(--pink);
+    color: var(-text);
+    font-family: "Lobster", cursive;
+    padding: 40px;
+    text-align: center;
+}
+
+h1{
+    font-family:  "Satisfy", cursive;
+    font-size: 2.8rem;
+    color: var(--hotpink);
+    text-shadow: 2px 2px 0 var(--blue);
+    margin-bottom:  30px;
+}
+#embedForm{
+    background: var(--white);
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px var(--shadow);
+    gap: 15px;
+    max-width: 450px;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    display: block;
+    font-size: 1.1rem;
+    margin-bottom: 6px;
+    color: var(--hotpink);
+}
+
+input, select {
+    background-color: var(--blue);
+    border: 2px solid var(--hotpink);
+    border-radius: 12px;
+    padding: 8px 12px;
+    font-family: "Satisfy", cursive;
+    font-size: 1rem;
+    width: 80%;
+    color: #444;
+    transition: all 0.25s ease-in-out;
+}
+
+input:hover, select:hover{
+    transform: scale(1.02);
+    box-shadow: 0 0 8px var(--hotpink);
+}
+
+input:focus, select:focus{
+    outline: none;
+    border-color: var(--text);
+    box-shadow: 0 0 10px var(--blue);
+}
+
+button {
+    background: var(--hotpink);
+    color: var(--white);
+    border: none;
+    padding: 12px;
+    border-radius: 15px;
+    cursor: pointer;
+    font-family: "Lobster", cursive;
+    font-size: 1.1rem;
+    transition: all 0.2s ease-in-out;
+}
+
+button:hover{
+    background: var(--blue);
+    color: var(--hotpink);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px var(--shadow);
+}

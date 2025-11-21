@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Cupcake Manage Board</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lobster&family=Satisfy&display=swap" rel="stylesheet">
+</head>
+<body>
+  <h1>🧁 Cupcake Manage Board</h1>
+
+  <form id="embedForm">
+    
+    <div class="from-group">
+      <label>Dil:</label>
+      <select id="langSelect">
+        <option value="tr">tr Türkçe</option>
+        <option value="en">🇺🇸 English</option>
+        <option value="ru">🇷🇺 Русский</option>
+      </select>
+    </div>
+
+    <div id="localFields"></div>
+
+   
+    <div class="form-group">
+      <label for="url">Bağlantı</label>
+      <input type="url" id="url" placeholder="Bağlantı"><br>
+   </div>
+   <div class="from-group">
+    <label for="image">Görsel Bağlantısı</label>
+    <input type="url" id="image" placeholder="Banner URL"><br>
+    </div>
+
+   <div class="form-group">
+  <label>Author İsmi</label>
+  <input type="text" id="author_name" placeholder="İsim">
+</div>
+
+<div class="form-group">
+  <label>Author Avatar URL</label>
+  <input type="url" id="author_icon" placeholder="Avatar URL">
+</div>
+
+<div class="form-group">
+  <label>Author Profil URL</label>
+  <input type="url" id="author_url" placeholder="Profil linki">
+</div>
+
+    <div class="form-group">
+      <label for="thumbnail">Thumbnail bağlantısı</label>
+      <input type="url" id="thumbnail" placeholder="thumbnail">
+    </div>
+
+    <div class="form-group">
+      <label for="color">Renk</label>
+      <input type="color" id="color"><br>
+    </div>
+    <div class="from-group">
+      <label for="channelId">Kanal Id'si</label>
+      <input type="text" id="channelId" placeholder="Kanal ID" required><br>
+   </div>
+  
+   <div class="from-group">
+      <label for="WebhookTitle">Webhook başlığı</label>
+      <input type="text" id="webhookTitle" placeholder="Webhook Başlığı"><br>
+   </div>
+   <div class="from-group">
+      <label for="EmbedKey">Embed Key</label>
+      <input type="text" id="Embedkey" placeholder="Embed key"><br>
+   </div>
+
+   <button type="submit">Gönder</button>
+  </form>
+
+
+  <script>
+    const localFields = document.getElementById("localFields");
+    const langSelect = document.getElementById("langSelect");
+
+
+    const localState ={
+      tr: { title: "", description: "", footer: ""},
+      en: { title: "", description: "", footer: ""},
+      ru: { title: "", description: "", footer: ""},
+    };
+
+    function renderLocalInput(lang) {
+  localFields.innerHTML = `
+    <div class="form-group">
+      <label>Başlık (${lang.toUpperCase()})</label>
+      <input type="text" id="title_${lang}" 
+             value="${localState[lang].title}" 
+             placeholder="Başlık (${lang.toUpperCase()})">
+    </div>
+
+    <div class="form-group">
+      <label>Açıklama (${lang.toUpperCase()})</label>
+      <input type="text" id="desc_${lang}" 
+             value="${localState[lang].description}"
+             placeholder="Açıklama (${lang.toUpperCase()})">
+    </div>
+
+    <div class="form-group">
+      <label>Alt Bilgi (${lang.toUpperCase()})</label>
+      <input type="text" id="footer_${lang}" 
+             value="${localState[lang].footer}" 
+             placeholder="Alt Bilgi">
+    </div>
+  `;
+
+  document.getElementById(`title_${lang}`).addEventListener("input", e => {
+    localState[lang].title = e.target.value;
+  });
+
+  document.getElementById(`desc_${lang}`).addEventListener("input", e => {
+    localState[lang].description = e.target.value;
+  });
+
+  document.getElementById(`footer_${lang}`).addEventListener("input", e => {
+    localState[lang].footer = e.target.value;
+  });
+}
+
+    langSelect.addEventListener("change", () => {
+      renderLocalInput(langSelect.value);
+    });
+
+    renderLocalInput("tr");
+  </script>
+    <script src="renderer.js"></script>
+</body>
+</html>
