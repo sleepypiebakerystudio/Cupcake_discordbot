@@ -1,4 +1,4 @@
-const { createEmbed } = require("../../ursa_module/models/embeds/createEmbed");
+const { createEmbed } = require("../utils/createEmbed");
 require("dotenv").config();
 
 module.exports = {

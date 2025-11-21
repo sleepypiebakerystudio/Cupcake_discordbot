@@ -1,5 +1,5 @@
 const Embed = require("../database/models/Embed");
-const { createEmbed }  = require("../../ursa_module/models/embeds/createEmbed");
+const { createEmbed }  = require("./createEmbed");
 
 async function getEmbedByKey(key, lang = "en") {
     console.log("🔑 Aranan key:", key);
