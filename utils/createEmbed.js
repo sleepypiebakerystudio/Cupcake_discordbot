@@ -16,9 +16,8 @@ function createEmbed({
     if (description) embed.setDescription(description);
     if (footer) embed.setFooter({ text: footer });
 
-    // ⚡ author boşsa setAuthor çağırma
+
     if (author && (author.name || author.icon_url || author.url)) {
-        // Discord.js 14+ kullanıyorsan property isimleri camelCase
         embed.setAuthor({
             name: author.name || undefined,
             iconURL: author.icon_url || undefined,
