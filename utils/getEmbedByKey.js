@@ -12,6 +12,11 @@ async function getEmbedByKey(key, lang = "en") {
 
     const locale = data.locales?.[lang] || data.locales?.en;
 
+    if(locale?.description){
+        locale.descriprion = locale.description
+        .replace(/\\n/g, "\n")
+        .replace(/\s+/g, "");
+    }
     return createEmbed({
         title: locale?.title,
         description: locale?.description,
